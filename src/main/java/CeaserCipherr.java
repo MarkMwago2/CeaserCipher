@@ -1,87 +1,22 @@
-public class CeaserCipherr {
-    private static String plainText;
-    private int shiftKey;
+public class CeaserCipherr{
 
-    public static String encrypt(String getplainText, int shiftKey) {
-
-        plainText = getplainText;
-        String cipherrText = "";
-
-        if (shiftKey > 26) {
-            shiftKey = (shiftKey % 26);
-        } else if (shiftKey < 0) {
-            shiftKey = (shiftKey % 26) + 26;
-        }
-
-
-        for (int i = 0; i < plainText.length(); i++) {
-            if (Character.isLetter(plainText.charAt(i))) {
-                if (Character.isLowerCase(plainText.charAt(i))) {
-                    char ciphered_letter = (char) (plainText.charAt(i) + shiftKey);
-                    if (ciphered_letter > 'z') {
-                        cipherrText += (char) (plainText.charAt(i) - (26 - shiftKey));
-
-                    } else {
-                        cipherrText += ciphered_letter;
-                    }
-                } else if (Character.isUpperCase(plainText.charAt(i))) {
-                    char ciphered_letter = (char) (plainText.charAt(i) + shiftKey);
-                    if (ciphered_letter > 'Z') {
-                        cipherrText += (char) (plainText.charAt(i) - (26 - shiftKey));
-                        ;
-                    } else {
-                        cipherrText += ciphered_letter;
-                    }
-                }
-
-            } else {
-                cipherrText += plainText.charAt(i);
-            }
-
-        }
-        return cipherrText;
-
+    public String runCeaserCipherr(String inputtedMessage, int shift){
+        StringBuilder encryptedMessage = new StringBuilder(inputtedMessage);
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String alphabet2 = alphabet.toLowerCase();
+        String upperCaseInput = alphabet.substring(shift) + alphabet.substring(0, shift);
+        for (int i = 0; i < encryptedMessage.length(); i++) {
+            char currentCharacter = encryptedMessage.charAt(i);
+            int index = alphabet.indexOf(currentCharacter);
+            if (index != -1) {
+                char newChar = upperCaseInput.charAt(index);
+                encryptedMessage.setCharAt(i, newChar);
+            }            index = alphabet2.indexOf(currentCharacter);
+            if (index != -1) {
+                String lowercaseInput = upperCaseInput.toLowerCase();
+                char newCharacter = lowercaseInput .charAt(index);
+                encryptedMessage.setCharAt(i, newCharacter);
+            }        }
+        return encryptedMessage.toString();
     }
-
-    public static String decrypt(String getplainText, int shiftKey) {
-        plainText = getplainText;
-        String cipherText = "";
-
-        if (shiftKey > 26) {
-            shiftKey = (shiftKey % 26);
-        } else if (shiftKey < 0) {
-            shiftKey = (shiftKey % 26) + 26;
-        }
-
-
-        for (int i = 0; i < plainText.length(); i++) {
-            if (Character.isLetter(plainText.charAt(i))) {
-                if (Character.isLowerCase(plainText.charAt(i))) {
-                    char ciphered_letter = (char) (plainText.charAt(i) - shiftKey);
-                    if (ciphered_letter < 'a') {
-                        cipherrText += (char) (plainText.charAt(i) + (26 - shiftKey));
-
-                    } else {
-                        cipherrText += ciphered_letter;
-                    }
-                } else if (Character.isUpperCase(plainText.charAt(i))) {
-                    char ciphered_letter = (char) (plainText.charAt(i) - shiftKey);
-                    if (ciphered_letter < 'A') {
-                        cipherrText += (char) (plainText.charAt(i) + (26 - shiftKey));
-                        ;
-                    } else {
-                        cipherrText += ciphered_letter;
-                    }
-                }
-
-            } else {
-                cipherrText += plainText.charAt(i);
-            }
-
-        }
-        return cipherrText;
-
-
-    }
-
 }
