@@ -14,7 +14,7 @@ public class EncodingTest {
         @Test
         public void checkIfSavesInputText()
         {
-            assertEquals("KELVIN KOSGEI", testEncoding.getInputText() );
+            assertEquals("ELEPHANT", testEncoding.getInputText() );
         }
 
         @Test
@@ -44,7 +44,7 @@ public class EncodingTest {
         @Test
         public void validEncoding()
         {
-            assertEquals("MGNXKP MQUIGK" , testEncoding.encode());
+            assertEquals("GNGRJCPV" , testEncoding.encode());
         }
 
     }

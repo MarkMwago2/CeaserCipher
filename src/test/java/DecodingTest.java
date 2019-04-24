@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 
 public class DecodingTest {
-        Decoding testDecoding = new Decoding( 2, "MGNXKP MQUIGK");
+        Decoding testDecoding = new Decoding( 2, "GNGRJCPV");
         @Test
         public void checkIfSavesInputText()
         {
-            assertEquals("MGNXKP MQUIGK", testDecoding.getInputText() );
+            assertEquals("GNGRJCPV", testDecoding.getInputText() );
         }
 
         @Test
