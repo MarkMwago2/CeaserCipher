@@ -12,7 +12,7 @@ public class App {
             {
                 System.out.println("Enter a text");
                 String inputText = scanner.nextLine().toUpperCase();
-                System.out.println("Enter a key ");
+                System.out.println("Enter a key. A number by which your word is encrypted.");
                 int key = scanner.nextInt();
                 Encoding encoding = new Encoding(inputText,key);
                 System.out.println(String.format("Your encrypted text is:  %s",encoding.encode()));
